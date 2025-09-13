@@ -18,25 +18,25 @@ Go (version 1.16 or later) installed on your system. Download from golang.org.
 
 Building from Source
 
-Clone the repository:
+Clone the repository:<br>
 
-**git clone [https://github.com/rishavand1/sublive.git](https://github.com/rishavand1/Sublive)**
+**git clone [https://github.com/rishavand1/sublive.git](https://github.com/rishavand1/Sublive)**<br>
 
-**cd sublive**
+**cd sublive**<br>
 
-Build the binary:
+Build the binary:<br>
 
-**go build -o sublive sublive.go**
+**go build -o sublive sublive.go**<br>
 
-(Optional) Move the binary to a directory in your PATH for global access:
+(Optional) Move the binary to a directory in your PATH for global access:<br>
 
-**sudo mv sublive /usr/local/bin/**
+**sudo mv sublive /usr/local/bin/** <br>
 
 
-Downloading Pre-built Binary
+Downloading Pre-built Binary <br>
 
 If available, download the latest release from the Releases page and extract the binary for your platform.
-Getting Started
+Getting Started <br>
 
 Basic Usage
 
@@ -100,20 +100,20 @@ Example: ./sublive -u example.com -w /path/to/wordlist.txt
 
 Examples
 
-Basic scan with defaults:
-./sublive -u example.com -w (wordlist)
+Basic scan with defaults:<br>
+**./sublive -u example.com -w (wordlist)**
 
 Verbose scan with output to file:
-./sublive -u example.com -v -o results.txt
+**./sublive -u example.com -v -o results.txt**
 
 Deep recursive scan using stdin wordlist:
-cat large_wordlist.txt | ./sublive -u example.com -t 1 -v
+**cat large_wordlist.txt | ./sublive -u example.com -t 1 -v**
 
 Fast scan, only live subdomains:
-./sublive -u example.com -w -t 3 -x
+**./sublive -u example.com -w -t 3 -x**
 
 Using a file wordlist and medium speed:
-./sublive -u example.com -w custom_words.txt -t 2
+**./sublive -u example.com -w custom_words.txt -t 2**
 
 
 Wordlist Priority
