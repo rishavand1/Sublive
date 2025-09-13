@@ -1,5 +1,5 @@
 # Sublive
-Sublive is a lightweight command-line tool written in Go for quickly scanning and checking the liveness of subdomains for a given domain. It resolves subdomains, attempts HTTP/HTTPS connections, and reports status codes and IPs. It supports wordlists from files, stdin, or defaults, with options for recursion depth and concurrency.
+# Sublive is a lightweight command-line tool written in Go for quickly scanning and checking the liveness of subdomains for a given domain. It resolves subdomains, attempts HTTP/HTTPS connections, and reports status codes and IPs. It supports wordlists from files, stdin, or defaults, with options for recursion depth and concurrency.
 Features
 
 Fast subdomain enumeration and liveness checking.
@@ -10,7 +10,8 @@ Recursion modes for deeper scanning.
 Concurrent processing for efficiency.
 Outputs results to stdout or a file, with a summary of findings.
 
-Installation
+**Installation**
+
 Prerequisites
 
 Go (version 1.16 or later) installed on your system. Download from golang.org.
@@ -18,24 +19,29 @@ Go (version 1.16 or later) installed on your system. Download from golang.org.
 Building from Source
 
 Clone the repository:
-git clone [https://github.com/rishavand1/sublive.git](https://github.com/rishavand1/Sublive)
-cd sublive
+
+**git clone [https://github.com/rishavand1/sublive.git](https://github.com/rishavand1/Sublive)**
+
+**cd sublive**
 
 Build the binary:
-go build -o sublive sublive.go
+
+**go build -o sublive sublive.go**
 
 (Optional) Move the binary to a directory in your PATH for global access:
-sudo mv sublive /usr/local/bin/
+
+**sudo mv sublive /usr/local/bin/**
 
 
 Downloading Pre-built Binary
+
 If available, download the latest release from the Releases page and extract the binary for your platform.
 Getting Started
 
 Basic Usage
 
 Run the tool with a target domain:
-./sublive -u google.com -w /usr/share/wordlists/amass/subdomains-top1mil-5000.txt -o results.txt -x -v
+**./sublive -u google.com -w /usr/share/wordlists/amass/subdomains-top1mil-5000.txt -o results.txt -x -v**
 
 
 
@@ -43,10 +49,12 @@ This will use the default wordlist and settings to scan subdomains like www.exam
 Running with Input
 
 Pipe a wordlist from stdin:
-cat wordlist.txt | ./sublive -u example.com
+
+**cat wordlist.txt | ./sublive -u example.com**
 
 Use a wordlist file:
-./sublive -u example.com -w wordlist.txt
+
+**./sublive -u example.com -w wordlist.txt**
 
 
 Output
@@ -93,7 +101,7 @@ Example: ./sublive -u example.com -w /path/to/wordlist.txt
 Examples
 
 Basic scan with defaults:
-./sublive -u example.com
+./sublive -u example.com -w (wordlist)
 
 Verbose scan with output to file:
 ./sublive -u example.com -v -o results.txt
@@ -102,7 +110,7 @@ Deep recursive scan using stdin wordlist:
 cat large_wordlist.txt | ./sublive -u example.com -t 1 -v
 
 Fast scan, only live subdomains:
-./sublive -u example.com -t 3 -x
+./sublive -u example.com -w -t 3 -x
 
 Using a file wordlist and medium speed:
 ./sublive -u example.com -w custom_words.txt -t 2
