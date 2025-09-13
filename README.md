@@ -18,30 +18,35 @@ Go (version 1.16 or later) installed on your system. Download from golang.org.
 Building from Source
 
 Clone the repository:
-textgit clone https://github.com/yourusername/sublive.git
+git clone [https://github.com/rishavand1/sublive.git](https://github.com/rishavand1/Sublive)
 cd sublive
 
 Build the binary:
-textgo build -o sublive sublive.go
+go build -o sublive sublive.go
 
 (Optional) Move the binary to a directory in your PATH for global access:
-textsudo mv sublive /usr/local/bin/
+sudo mv sublive /usr/local/bin/
 
 
 Downloading Pre-built Binary
 If available, download the latest release from the Releases page and extract the binary for your platform.
 Getting Started
+
 Basic Usage
+
 Run the tool with a target domain:
-text./sublive -u example.com
+./sublive -u google.com -w /usr/share/wordlists/amass/subdomains-top1mil-5000.txt -o results.txt -x -v
+
+
+
 This will use the default wordlist and settings to scan subdomains like www.example.com, mail.example.com, etc., and output results with status codes.
 Running with Input
 
 Pipe a wordlist from stdin:
-textcat wordlist.txt | ./sublive -u example.com
+cat wordlist.txt | ./sublive -u example.com
 
 Use a wordlist file:
-text./sublive -u example.com -w wordlist.txt
+./sublive -u example.com -w wordlist.txt
 
 
 Output
@@ -56,10 +61,12 @@ Sublive uses command-line flags for configuration. Run ./sublive without argumen
 -u <domain> (required):
 Specifies the target root domain (e.g., -u example.com).
 Example: ./sublive -u example.com
+
 -v (optional):
 Enables verbose mode, showing progress and status for each checked subdomain.
 Default: false (no verbose output).
 Example: ./sublive -u example.com -v
+
 -t <level> (optional):
 Sets the recursion/speed level:
 
@@ -73,10 +80,12 @@ Example: ./sublive -u example.com -t 1
 -o <file> (optional):
 Specifies the output file path to save results. If not provided, outputs to stdout.
 Example: ./sublive -u example.com -o results.txt
+
 -x (optional):
 Outputs only live subdomains (status codes 200-399) with their status. When set, unreachable or error subdomains are excluded from the output.
 Default: false (outputs all checked subdomains).
 Example: ./sublive -u example.com -x
+
 -w <file> (optional):
 Path to a custom wordlist file. If provided, it's used instead of stdin or defaults.
 Example: ./sublive -u example.com -w /path/to/wordlist.txt
@@ -84,19 +93,19 @@ Example: ./sublive -u example.com -w /path/to/wordlist.txt
 Examples
 
 Basic scan with defaults:
-text./sublive -u example.com
+./sublive -u example.com
 
 Verbose scan with output to file:
-text./sublive -u example.com -v -o results.txt
+./sublive -u example.com -v -o results.txt
 
 Deep recursive scan using stdin wordlist:
-textcat large_wordlist.txt | ./sublive -u example.com -t 1 -v
+cat large_wordlist.txt | ./sublive -u example.com -t 1 -v
 
 Fast scan, only live subdomains:
-text./sublive -u example.com -t 3 -x
+./sublive -u example.com -t 3 -x
 
 Using a file wordlist and medium speed:
-text./sublive -u example.com -w custom_words.txt -t 2
+./sublive -u example.com -w custom_words.txt -t 2
 
 
 Wordlist Priority
